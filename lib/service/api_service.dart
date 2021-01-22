@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:SIKOMPAK/WooCommerce/config.dart';
+import 'package:SIKOMPAK/models/category.dart';
 import 'package:SIKOMPAK/models/customer.dart';
 import 'package:SIKOMPAK/models/login_model.dart';
 import 'package:dio/dio.dart';
@@ -53,5 +54,32 @@ class APIService {
       print(e.message);
     }
     return model;
+  }
+
+  Future<List<Category>> getCategories() async {
+    List<Category> data = new List<Category>();
+    try {
+      String url = Config.url +
+          Config.categoriesURL +
+          "?consumer_key=${Config.key}&consumer_secret=${Config.secret}";
+      var response = await Dio().get(
+        url,
+        options: new Options(
+          headers: {
+            HttpHeaders.contentTypeHeader: "application/json",
+          },
+        ),
+      );
+      if (response.statusCode == 200) {
+        data = (response.data as List)
+            .map(
+              (i) => Category.fromJson(i),
+            )
+            .toList();
+      }
+    } on DioError catch (e) {
+      print(e.response);
+    }
+    return data;
   }
 }
