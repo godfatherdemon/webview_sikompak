@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
               ),
               label: 'Account')
         ],
-        selectedItemColor: Colors.redAccent,
+        selectedItemColor: Colors.green,
         unselectedItemColor: Colors.black,
         type: BottomNavigationBarType.shifting,
         currentIndex: _index,
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
       centerTitle: true,
       brightness: Brightness.dark,
       elevation: 0,
-      backgroundColor: Colors.redAccent,
+      backgroundColor: Colors.green,
       automaticallyImplyLeading: false,
       title: Text(
         "SIKOMPAK-LSJ",
