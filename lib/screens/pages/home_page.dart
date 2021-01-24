@@ -1,4 +1,5 @@
-import 'package:carousel_pro/carousel_pro.dart';
+import 'package:SIKOMPAK/screens/pages/dashboard_page.dart';
+import 'package:SIKOMPAK/utils/cart_icons.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -7,54 +8,87 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  List<Widget> _widgetList = [
+    DashboardPage(),
+    DashboardPage(),
+    DashboardPage(),
+    DashboardPage()
+  ];
+
+  int _index = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/head.png',
-              fit: BoxFit.contain,
-              height: 32,
-            ),
-            Container(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('SIKOMPAK - PT. Lintas Sinergi Jabarindo'))
-          ],
-        ),
+      appBar: _buildAppBar(),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(
+                CartIcons.home,
+              ),
+              label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                CartIcons.cart,
+              ),
+              label: 'Cart'),
+          BottomNavigationBarItem(
+              icon: Icon(
+                CartIcons.favorites,
+              ),
+              label: 'Favourites'
+              // title: Text(
+              //   'Favourites',
+              //   style: TextStyle(),
+              ),
+          BottomNavigationBarItem(
+              icon: Icon(
+                CartIcons.account,
+              ),
+              label: 'Account')
+        ],
+        selectedItemColor: Colors.redAccent,
+        unselectedItemColor: Colors.black,
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _index,
+        onTap: (index) {
+          setState(() {
+            _index = index;
+          });
+        },
       ),
-      backgroundColor: Colors.black,
-      body: SizedBox(
-          height: 600.0,
-          width: 1480.0,
-          child: Carousel(
-            images: [
-              // NetworkImage(
-              //     'https://cdn-images-1.medium.com/max/2000/1*GqdzzfB_BHorv7V2NV7Jgg.jpeg'),
-              // NetworkImage(
-              //     'https://cdn-images-1.medium.com/max/2000/1*wnIEgP1gNMrK5gZU7QS0-A.jpeg'),
-              ExactAssetImage("assets/images/koperasi0.jpg"),
-              ExactAssetImage("assets/images/koperasi1.jpg"),
-              ExactAssetImage("assets/images/koperasi2.png"),
-              ExactAssetImage("assets/images/koperasi3.jpg"),
-              ExactAssetImage("assets/images/koperasi4.jpg")
-            ],
-            dotSize: 4.0,
-            dotSpacing: 15.0,
-            dotColor: Colors.lightGreenAccent,
-            indicatorBgPadding: 5.0,
-            dotBgColor: Colors.black.withOpacity(0.5),
-            borderRadius: true,
-            moveIndicatorFromBottom: 180.0,
-            noRadiusForIndicator: true,
-          )),
+      body: _widgetList[_index],
+    );
+  }
+
+  Widget _buildAppBar() {
+    return AppBar(
+      centerTitle: true,
+      brightness: Brightness.dark,
+      elevation: 0,
+      backgroundColor: Colors.redAccent,
+      automaticallyImplyLeading: false,
+      title: Text(
+        "SIKOMPAK-LSJ",
+        style: TextStyle(color: Colors.white),
+      ),
+      actions: [
+        Icon(
+          Icons.notifications_none,
+          color: Colors.white,
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Icon(
+          Icons.shopping_cart,
+          color: Colors.white,
+        ),
+        SizedBox(
+          width: 10,
+        ),
+      ],
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:SIKOMPAK/screens/catalog/product_view.dart';
 import 'package:SIKOMPAK/screens/pages/home_page.dart';
-import 'package:SIKOMPAK/screens/register/register.dart';
 import 'package:SIKOMPAK/screens/videos/home_videos.dart';
 import 'package:custom_bottom_navigation_bar/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
