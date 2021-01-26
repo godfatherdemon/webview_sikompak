@@ -1,3 +1,4 @@
+import 'package:SIKOMPAK/models/category.dart';
 import 'package:SIKOMPAK/service/api_service.dart';
 import 'package:flutter/material.dart';
 
@@ -39,8 +40,75 @@ class _WidgetCategoriesState extends State<WidgetCategories> {
                 ),
               )
             ],
-          )
+          ),
+          _categoriesList()
         ],
+      ),
+    );
+  }
+
+  Widget _categoriesList() {
+    return new FutureBuilder(
+      future: apiService.getCategories(),
+      builder: (
+        BuildContext context,
+        AsyncSnapshot<List<categoryModel.Category>> model,
+      ) {
+        if (model.hasData) {
+          return _buildCategories(model.data);
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+
+  Widget _buildCategories(List<Category> categories) {
+    return Container(
+      height: 150,
+      alignment: Alignment.centerLeft,
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: ClampingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: categories.length,
+        itemBuilder: (context, index) {
+          var data = categories[index];
+          return Column(
+            children: [
+              Container(
+                margin: EdgeInsets.all(10),
+                width: 80,
+                height: 80,
+                alignment: Alignment.center,
+                child: Image.network(
+                  data.image.url,
+                  height: 80,
+                ),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black12,
+                        offset: Offset(0, 5),
+                        blurRadius: 15),
+                  ],
+                ),
+              ),
+              Row(
+                children: [
+                  Text(data.categoryName.toString()),
+                  Icon(
+                    Icons.keyboard_arrow_right,
+                    size: 14,
+                  ),
+                ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }
