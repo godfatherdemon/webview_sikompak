@@ -1,5 +1,4 @@
-import 'package:SIKOMPAK/models/category.dart' as Image;
-import 'package:SIKOMPAK/models/category.dart';
+import 'package:SIKOMPAK/models/category.dart' as categoryModel;
 import 'package:SIKOMPAK/service/api_service.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +52,7 @@ class _WidgetCategoriesState extends State<WidgetCategories> {
       future: apiService.getCategories(),
       builder: (
         BuildContext context,
-        AsyncSnapshot<List<Category>> model,
+        AsyncSnapshot<List<categoryModel.Category>> model,
       ) {
         if (model.hasData) {
           return _buildCategories(model.data);
@@ -65,7 +64,7 @@ class _WidgetCategoriesState extends State<WidgetCategories> {
     );
   }
 
-  Widget _buildCategories(List<Category> categories) {
+  Widget _buildCategories(List<categoryModel.Category> categories) {
     return Container(
       height: 150,
       alignment: Alignment.centerLeft,
