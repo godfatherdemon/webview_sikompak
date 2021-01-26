@@ -32,7 +32,7 @@ class _WidgetCategoriesState extends State<WidgetCategories> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 16, top: 10, right: 10),
+                padding: EdgeInsets.only(left: 16, top: 4, right: 10),
                 child: Text(
                   'View All',
                   style: TextStyle(color: Colors.green),

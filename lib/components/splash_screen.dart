@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:SIKOMPAK/WalkThrough/getting_started_screen.dart';
+import 'package:SIKOMPAK/components/navigation.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,8 +26,8 @@ class StartState extends State<SplashScreen> {
   }
 
   route() {
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (context) => GettingStartedScreen()));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => Navigation()));
   }
 
   initScreen(BuildContext context) {
