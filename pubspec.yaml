@@ -49,6 +49,7 @@ dependencies:
   cookie_jar: ^1.0.1
   email_validator: '^1.0.5'
   # webview_media: ^0.1.2
+  image: ^2.1.19
 
 dev_dependencies:
   flutter_test:

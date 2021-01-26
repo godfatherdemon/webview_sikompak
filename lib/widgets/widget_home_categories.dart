@@ -52,7 +52,7 @@ class _WidgetCategoriesState extends State<WidgetCategories> {
       future: apiService.getCategories(),
       builder: (
         BuildContext context,
-        AsyncSnapshot<List<categoryModel.Category>> model,
+        AsyncSnapshot<List<Category>> model,
       ) {
         if (model.hasData) {
           return _buildCategories(model.data);
