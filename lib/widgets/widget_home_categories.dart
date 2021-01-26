@@ -1,3 +1,4 @@
+import 'package:SIKOMPAK/models/category.dart' as Image;
 import 'package:SIKOMPAK/models/category.dart';
 import 'package:SIKOMPAK/service/api_service.dart';
 import 'package:flutter/material.dart';

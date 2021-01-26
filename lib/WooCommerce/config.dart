@@ -5,6 +5,6 @@ class Config {
   static String customerUrl = "customers";
   static String tokenUrl =
       "https://produk.lintasjabarindo.com/wp-json/jwt-auth/v1/token";
-  static String categoriesURL = "products/categories";
+  static String categoriesURL = "/product/";
   static String productsURL = "products";
 }
