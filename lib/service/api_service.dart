@@ -5,6 +5,7 @@ import 'package:SIKOMPAK/WooCommerce/config.dart';
 import 'package:SIKOMPAK/models/category.dart';
 import 'package:SIKOMPAK/models/customer.dart';
 import 'package:SIKOMPAK/models/login_model.dart';
+import 'package:SIKOMPAK/models/product.dart';
 import 'package:dio/dio.dart';
 
 class APIService {
@@ -74,6 +75,33 @@ class APIService {
         data = (response.data as List)
             .map(
               (i) => Category.fromJson(i),
+            )
+            .toList();
+      }
+    } on DioError catch (e) {
+      print(e.response);
+    }
+    return data;
+  }
+
+  Future<List<Product>> getProducts(String tagId) async {
+    List<Product> data = new List<Product>();
+    try {
+      String url = Config.url +
+          Config.categoriesURL +
+          "?consumer_key=${Config.key}&consumer_secret=${Config.secret}&tag=$tagId";
+      var response = await Dio().get(
+        url,
+        options: new Options(
+          headers: {
+            HttpHeaders.contentTypeHeader: "application/json",
+          },
+        ),
+      );
+      if (response.statusCode == 200) {
+        data = (response.data as List)
+            .map(
+              (i) => Product.fromJson(i),
             )
             .toList();
       }

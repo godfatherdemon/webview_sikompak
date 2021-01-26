@@ -1,4 +1,6 @@
+import 'package:SIKOMPAK/WooCommerce/config.dart';
 import 'package:SIKOMPAK/widgets/widget_home_categories.dart';
+import 'package:SIKOMPAK/widgets/widget_home_products.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +19,10 @@ class _DashboardPageState extends State<DashboardPage> {
           children: [
             imageCarousel(context),
             WidgetCategories(),
+            WidgetHomeProducts(
+              labelName: "Produk Hari ini",
+              tagId: Config.todayOffersTagId,
+            )
           ],
         ),
       ),
