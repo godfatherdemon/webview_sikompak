@@ -76,11 +76,11 @@ class NavigationBarState extends State<NavigationBar> {
             title: "Home",
           ),
           CustomBottomNavigationBarItem(
-            icon: Icons.apps,
-            title: "Application",
+            icon: Icons.people,
+            title: "SIKOMPAK",
           ),
           CustomBottomNavigationBarItem(
-            icon: Icons.shopping_cart,
+            icon: Icons.payment,
             title: "Product",
           ),
         ],

@@ -36,19 +36,19 @@ class _DashboardPageState extends State<DashboardPage> {
         images: [
           FittedBox(
             fit: BoxFit.fill,
-            child: Image.network("URL1"),
+            child: Image.network("https://produk.lintasjabarindo.com/shop/"),
           ),
           FittedBox(
             fit: BoxFit.fill,
-            child: Image.network("URL1"),
+            child: Image.network("https://produk.lintasjabarindo.com/shop/"),
           ),
           FittedBox(
             fit: BoxFit.fill,
-            child: Image.network("URL1"),
+            child: Image.network("https://produk.lintasjabarindo.com/shop/"),
           ),
           FittedBox(
             fit: BoxFit.fill,
-            child: Image.network("URL1"),
+            child: Image.network("https://produk.lintasjabarindo.com/shop/"),
           )
         ],
       ),
