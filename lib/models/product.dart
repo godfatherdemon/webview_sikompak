@@ -47,6 +47,8 @@ class Product {
       });
     }
   }
+
+  calculateDiscount() {}
 }
 
 class Categories {
