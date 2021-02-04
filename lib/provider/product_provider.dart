@@ -53,14 +53,19 @@ class ProductProvider with ChangeNotifier {
     String sortOrder = "asc",
   }) async {
     List<Product> itemModel = await apiService.getProducts(
-      strSearch: strSearch,
-      tagName: tagName,
-      pageNumber: pageNumber,
-      pageSize: this.pageSize,
-      categoryId: categoryId,
+      strSearch,
       sortBy: this.sortBy.value,
       sortOrder: this.sortBy.sortOrder,
     );
+    // List<Product> itemModel = await apiService.getProducts(
+    //   strSearch: strSearch,
+    //   tagName: tagName,
+    //   pageNumber: pageNumber,
+    //   pageSize: this.pageSize,
+    //   categoryId: categoryId,
+    //   sortBy: this.sortBy.value,
+    //   sortOrder: this.sortBy.sortOrder,
+    // );
     if (itemModel.length > 0) {
       _productList.addAll(itemModel);
     }

@@ -84,7 +84,8 @@ class APIService {
     return data;
   }
 
-  Future<List<Product>> getProducts(String tagId, {String strSearch}) async {
+  Future<List<Product>> getProducts(String tagId,
+      {String strSearch, String sortBy, String sortOrder}) async {
     List<Product> data = new List<Product>();
     try {
       String url = Config.url +

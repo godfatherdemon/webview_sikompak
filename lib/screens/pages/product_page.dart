@@ -5,7 +5,7 @@ import 'package:SIKOMPAK/screens/pages/base_page.dart';
 import 'package:flutter/material.dart';
 import 'package:SIKOMPAK/provider/product_provider.dart';
 import 'package:SIKOMPAK/widgets/widget_product_card.dart';
-import 'package:SIKOMPAK/service/api_service.dart';
+// import 'package:SIKOMPAK/service/api_service.dart';
 import 'package:provider/provider.dart';
 
 class ProductPage extends BasePage {
